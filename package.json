@@ -1,0 +1,17 @@
+{
+  "name": "nano-gpt-typescript",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run tests/basics",
+    "test:watch": "vitest tests/basics",
+    "test:all": "vitest run",
+    "test:microgpt": "vitest run tests/microgpt"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  }
+}
