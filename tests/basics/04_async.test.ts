@@ -46,9 +46,10 @@ describe('challenge 04 - async', () => {
     try {
       const slow = sleep(100).then(() => 123);
       const p = withTimeout(slow, 10);
+      const assertion = expect(p).rejects.toBeInstanceOf(TimeoutError);
 
       await vi.advanceTimersByTimeAsync(10);
-      await expect(p).rejects.toBeInstanceOf(TimeoutError);
+      await assertion;
     } finally {
       vi.useRealTimers();
     }

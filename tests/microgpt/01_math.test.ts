@@ -21,6 +21,19 @@ describe('microgpt step 1 - math', () => {
     expect(probs[1]).toBeGreaterThan(probs[0]);
   });
 
+  it('softmax is shift-invariant and matches reference values', () => {
+    const base = softmax([1, 2, 3]);
+    const shifted = softmax([1001, 1002, 1003]);
+
+    expect(base[0]).toBeCloseTo(0.09003057, 6);
+    expect(base[1]).toBeCloseTo(0.24472847, 6);
+    expect(base[2]).toBeCloseTo(0.66524096, 6);
+
+    expect(shifted[0]).toBeCloseTo(base[0], 8);
+    expect(shifted[1]).toBeCloseTo(base[1], 8);
+    expect(shifted[2]).toBeCloseTo(base[2], 8);
+  });
+
   it('sampleFromDistribution picks expected bucket', () => {
     const probs = [0.1, 0.2, 0.7];
 

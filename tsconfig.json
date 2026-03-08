@@ -9,6 +9,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
+    "noEmit": true,
     "types": ["node", "vitest/globals"]
   },
   "include": ["src", "tests", "vitest.config.ts"]
